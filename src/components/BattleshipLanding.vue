@@ -3,7 +3,7 @@
     <h1>Welcome to Battleship!</h1>
     <div v-if="nothingInProgress">
       <form v-on:submit.prevent="newStagingGame">
-        <label>User ID: </label><input type="number" id="userId" />
+        <label>Player ID: </label><input type="number" id="playerId" />
         <div>
           <input type="submit" value="New Game"/>
         </div>
@@ -23,7 +23,7 @@ export default {
   methods: {
     newStagingGame: function( submitEvent ) {
       const postBody = {
-        userId: submitEvent.target.elements.userId.value
+        playerId: submitEvent.target.elements.playerId.value
       }
       fetch(
         '/battleship/api/stagingGame',
